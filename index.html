@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Englebert&family=IM+Fell+English+SC&family=Single+Day&display=swap" rel="stylesheet">
+<title>쇼핑몰</title>
+<style>
+  /* General Styles */
+  body {
+    margin: 0;
+    font-family: "Englebert", sans-serif;
+    background-color: #e6e6e6;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  a {
+    color: #8857c9;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Header Styles */
+  header {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-family: "IM Fell English SC", sans-serif;
+    font-size: 2.5rem;
+  }
+
+  header .auth-buttons {
+    margin-right: 20px;
+  }
+
+  nav {
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav a:hover {
+    background-color: #8857c9;
+    color: #fff;
+  }
+
+  .container {
+    position: relative;
+    min-height: calc(100vh - 240px);
+    padding: 0 20px;
+  }
+
+  .shop-text {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #383738;
+  }
+
+  /* Slide Show Styles */
+  .slideshow-container {
+    width: 1700px;
+    height: 600px;
+    position: relative;
+  }
+
+
+
+  .mySlides img {
+    width: 1700px;
+    height: 600px;
+  }
+
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  /* Footer Styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  footer ul li {
+    margin-bottom: 5px;
+  }
+
+  footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Shopping Mall</h1>
+    <div class="auth-buttons">
+      <a href="login.html">Login</a>
+      <a href="sign.html">Sign Up</a>
+    </div>
+  </header>
+  <nav>
+    <a href="computer.html">Computer</a>
+    <a href="clothes.html">Clothes</a>
+    <a href="grocery.html">Grocery</a>
+    <a href="furniture.html">Furniture</a>
+  </nav>
+  <div class="container">
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="https://cdn.pixabay.com/photo/2017/01/22/12/07/imac-1999636_640.png" width="400px" height="300px" alt="Slide 1">
+      </div>
+      <div class="mySlides fade">
+        <img src="https://cdn.pixabay.com/photo/2015/12/09/17/11/vegetables-1085063_640.jpg" width="400px" height="300px" alt="Slide 2">
+      </div>
+      <div class="mySlides fade">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_640.jpg" width="400px" height="300px" alt="Slide 3">
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </div>
+  <footer>
+    <ul>
+      <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
+      <li>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+      <li>Address: 123 Shopping Mall Street, City, Country</li>
+    </ul>
+  </footer>
+  <script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+  </script>
+</body>
+</html>
